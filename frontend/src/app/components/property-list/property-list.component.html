@@ -1,0 +1,47 @@
+<div class="list row">
+  <div class="col-md-8">
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search by City"
+        [(ngModel)]="city"
+      />
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" (click)="searchByCity()">
+          Search
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <h4>Properties List</h4>
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let property of properties; let i = index"
+        [class.active]="i == currentIndex"
+        (click)="setActiveProperty(property, i)"
+      >
+        <div>
+          <table>
+            <tbody>
+              <tr>
+                <td>{{ property.type }} &nbsp;&nbsp;</td>
+                <td>
+                  {{ property.city }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-6">
+    <app-property-details
+      [viewMode]="true"
+      [currentProperty]="currentProperty"
+    ></app-property-details>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+<div>
+  <div class="submit-form">
+    <div *ngIf="!submitted">
+      <div class="form-group">
+        <label for="type">Type</label>
+        <input
+          type="text"
+          class="form-control"
+          id="type"
+          required
+          [(ngModel)]="property.type"
+          name="type"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="city">City</label>
+        <input
+          class="form-control"
+          id="city"
+          required
+          [(ngModel)]="property.city"
+          name="city"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="pincode">Pincode</label>
+        <input
+          class="form-control"
+          id="pincode"
+          required
+          [(ngModel)]="property.pincode"
+          name="pincode"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="address">Address</label>
+        <input
+          class="form-control"
+          id="address"
+          required
+          [(ngModel)]="property.address"
+          name="address"
+        />
+      </div>
+
+      <button (click)="saveProperty()" class="btn btn-success">Submit</button>
+    </div>
+
+    <div *ngIf="submitted">
+      <h4>Property was submitted successfully!</h4>
+      <button class="btn btn-success" (click)="newProperty()">Add</button>
+    </div>
+  </div>
+</div>

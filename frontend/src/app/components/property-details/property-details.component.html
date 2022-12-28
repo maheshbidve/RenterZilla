@@ -1,0 +1,124 @@
+<div *ngIf="viewMode; else editable">
+  <div *ngIf="currentProperty.id">
+    <h4>Property</h4>
+    <div>
+      <label><strong>Type:</strong></label> {{ currentProperty.type }}
+    </div>
+    <div>
+      <label><strong>City:</strong></label>
+      {{ currentProperty.city }}
+    </div>
+    <div>
+      <label><strong>Pincode:</strong></label>
+      {{ currentProperty.pincode }}
+    </div>
+    <div>
+      <label><strong>Address:</strong></label>
+      {{ currentProperty.address }}
+    </div>
+    <div>
+      <label><strong>Status:</strong></label>
+      {{ currentProperty.available ? "Available" : "No" }}
+    </div>
+
+    <a
+      class="badge badge-warning"
+      routerLink="/properties/{{ currentProperty.id }}"
+    >
+      Edit
+    </a>
+  </div>
+
+  <div *ngIf="!currentProperty">
+    <br />
+    <p>Please click on a Property...</p>
+  </div>
+</div>
+
+<ng-template #editable>
+  <div *ngIf="currentProperty.id" class="edit-form">
+    <h4>Property</h4>
+    <form>
+      <div class="form-group">
+        <label for="title">Type</label>
+        <input
+          type="text"
+          class="form-control"
+          id="type"
+          [(ngModel)]="currentProperty.type"
+          name="type"
+        />
+      </div>
+      <div class="form-group">
+        <label for="city">City</label>
+        <input
+          type="text"
+          class="form-control"
+          id="city"
+          [(ngModel)]="currentProperty.city"
+          name="city"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="city">Pincode</label>
+        <input
+          type="text"
+          class="form-control"
+          id="pincode"
+          [(ngModel)]="currentProperty.pincode"
+          name="pincode"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="address">Address</label>
+        <input
+          type="text"
+          class="form-control"
+          id="address"
+          [(ngModel)]="currentProperty.address"
+          name="address"
+        />
+      </div>
+
+      <div class="form-group">
+        <label><strong>Status:</strong></label>
+        {{ currentProperty.available ? "Available" : "No" }}
+      </div>
+    </form>
+
+    <button
+      class="badge badge-primary mr-2"
+      *ngIf="currentProperty.available"
+      (click)="updateAvailable(false)"
+    >
+      Mark UnAvailable
+    </button>
+    <button
+      *ngIf="!currentProperty.available"
+      class="badge badge-primary mr-2"
+      (click)="updateAvailable(true)"
+    >
+      Mark Available
+    </button>
+
+    <button class="badge badge-danger mr-2" (click)="deleteProperty()">
+      Delete
+    </button>
+
+    <button
+      type="submit"
+      class="badge badge-success mb-2"
+      (click)="updateProperty()"
+    >
+      Update
+    </button>
+    <p>{{ message }}</p>
+  </div>
+
+  <div *ngIf="!currentProperty.id">
+    <br />
+    <p>Cannot access this Property...</p>
+  </div>
+</ng-template>
