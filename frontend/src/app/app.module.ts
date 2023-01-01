@@ -8,13 +8,18 @@ import { AppComponent } from './app.component';
 import { AddPropertyComponent } from './components/add-property/add-property.component';
 import { PropertyDetailsComponent } from './components/property-details/property-details.component';
 import { PropertyListComponent } from './components/property-list/property-list.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { httpInterceptorProviders } from './interceptors/http.interceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddPropertyComponent,
     PropertyDetailsComponent,
-    PropertyListComponent
+    PropertyListComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +27,7 @@ import { PropertyListComponent } from './components/property-list/property-list.
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
