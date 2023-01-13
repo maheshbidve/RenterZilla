@@ -11,6 +11,9 @@ import { PropertyListComponent } from './components/property-list/property-list.
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { httpInterceptorProviders } from './interceptors/http.interceptor';
+import { FileUploadComponent } from './components/file-upload/file-upload.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -19,15 +22,18 @@ import { httpInterceptorProviders } from './interceptors/http.interceptor';
     PropertyDetailsComponent,
     PropertyListComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    FileUploadComponent,
   ],
   imports: [
     BrowserModule,
+    MatIconModule,
+    MatProgressBarModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [httpInterceptorProviders],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "property")
@@ -33,6 +34,9 @@ public class Property {
 
 	@Column(name = "available")
 	private boolean available;
+
+	@OneToMany(mappedBy="property")
+	private Set<PropertyFiles> files;
 
 	public Property(String type, String city, Integer pincode, String address, boolean available) {
 		this.id = id;
