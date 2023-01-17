@@ -55,23 +55,25 @@ export class PropertyDetailsComponent implements OnInit {
 
     this.message = '';
 
-    this.propertyService.update(this.currentProperty.id, data).subscribe({
-      next: (res) => {
-        console.log(res);
-        this.currentProperty.available = status;
-        this.message = res.message
-          ? res.message
-          : 'The status was updated successfully!';
-      },
-      error: (e) => console.error(e),
-    });
+    this.propertyService
+      .update(this.currentProperty.property_id, data)
+      .subscribe({
+        next: (res) => {
+          console.log(res);
+          this.currentProperty.available = status;
+          this.message = res.message
+            ? res.message
+            : 'The status was updated successfully!';
+        },
+        error: (e) => console.error(e),
+      });
   }
 
   updateProperty(): void {
     this.message = '';
 
     this.propertyService
-      .update(this.currentProperty.id, this.currentProperty)
+      .update(this.currentProperty.property_id, this.currentProperty)
       .subscribe({
         next: (res) => {
           console.log(res);
@@ -84,7 +86,7 @@ export class PropertyDetailsComponent implements OnInit {
   }
 
   deleteProperty(): void {
-    this.propertyService.delete(this.currentProperty.id).subscribe({
+    this.propertyService.delete(this.currentProperty.property_id).subscribe({
       next: (res) => {
         console.log(res);
         this.router.navigate(['/properties']);

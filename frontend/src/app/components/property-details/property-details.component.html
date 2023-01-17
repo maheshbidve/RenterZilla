@@ -1,5 +1,5 @@
 <div *ngIf="viewMode; else editable">
-  <div *ngIf="currentProperty.id">
+  <div *ngIf="currentProperty.property_id">
     <h4>Property</h4>
     <div>
       <label><strong>Type:</strong></label> {{ currentProperty.type }}
@@ -23,7 +23,7 @@
 
     <a
       class="badge badge-warning"
-      routerLink="/properties/{{ currentProperty.id }}"
+      routerLink="/properties/{{ currentProperty.property_id }}"
     >
       Edit
     </a>
@@ -36,7 +36,7 @@
 </div>
 
 <ng-template #editable>
-  <div *ngIf="currentProperty.id" class="edit-form">
+  <div *ngIf="currentProperty.property_id" class="edit-form">
     <h4>Property</h4>
     <form>
       <div class="form-group">
@@ -117,7 +117,7 @@
     <p>{{ message }}</p>
   </div>
 
-  <div *ngIf="!currentProperty.id">
+  <div *ngIf="!currentProperty.property_id">
     <br />
     <p>Cannot access this Property...</p>
   </div>

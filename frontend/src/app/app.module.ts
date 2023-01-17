@@ -14,6 +14,8 @@ import { httpInterceptorProviders } from './interceptors/http.interceptor';
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { GoogleMapsModule } from '@angular/google-maps';
+import { GoogleMapDisplayComponent } from './components/google-map-display/google-map-display.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     LoginComponent,
     RegisterComponent,
     FileUploadComponent,
+    GoogleMapDisplayComponent,
   ],
   imports: [
     BrowserModule,

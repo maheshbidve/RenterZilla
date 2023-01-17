@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.Set;
 
 @Entity
@@ -35,15 +36,22 @@ public class Property {
 	@Column(name = "available")
 	private boolean available;
 
+	@Column(name = "latitude")
+	private double latitude;
+
+	@Column(name = "longitude")
+	private double longitude;
+
 	@OneToMany(mappedBy="property")
 	private Set<PropertyFiles> files;
 
-	public Property(String type, String city, Integer pincode, String address, boolean available) {
-		this.property_id = property_id;
+	public Property(String type, String city, Integer pincode, String address, double latitude, double longitude, boolean available) {
 		this.type = type;
 		this.city = city;
 		this.pincode = pincode;
 		this.address = address;
+		this.latitude = latitude;
+		this.longitude = longitude;
 		this.available = available;
 	}
 }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LatLong } from 'src/app/models/LatLong.model';
 import { Property } from 'src/app/models/property.model';
 import { PropertyService } from 'src/app/services/property.service';
 
@@ -8,14 +9,20 @@ import { PropertyService } from 'src/app/services/property.service';
   styleUrls: ['./add-property.component.css'],
 })
 export class AddPropertyComponent {
+  submitted = false;
+  cordinates: LatLong = {
+    lat: 0,
+    long: 0,
+  };
+
   property: Property = {
     type: '',
     city: '',
     address: '',
     pincode: 0,
     available: false,
+    cordinates: this.cordinates,
   };
-  submitted = false;
 
   constructor(private propertyService: PropertyService) {}
 
@@ -25,6 +32,8 @@ export class AddPropertyComponent {
       city: this.property.city,
       pincode: this.property.pincode,
       address: this.property.address,
+      latitude: this.cordinates.lat,
+      longitude: this.cordinates.long,
     };
 
     this.propertyService.create(data).subscribe({
@@ -45,5 +54,8 @@ export class AddPropertyComponent {
       address: '',
       available: true,
     };
+  }
+  onLocation(location: LatLong): void {
+    this.cordinates = location;
   }
 }
