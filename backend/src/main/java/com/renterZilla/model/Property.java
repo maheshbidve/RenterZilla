@@ -18,7 +18,7 @@ public class Property {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	private long property_id;
 
 	@Column(name = "type")
 	private String type;
@@ -39,7 +39,7 @@ public class Property {
 	private Set<PropertyFiles> files;
 
 	public Property(String type, String city, Integer pincode, String address, boolean available) {
-		this.id = id;
+		this.property_id = property_id;
 		this.type = type;
 		this.city = city;
 		this.pincode = pincode;

@@ -42,7 +42,7 @@ public class FilesStorageServiceImpl implements FilesStorageService {
         try {
             Files.copy(file.getInputStream(), this.root.resolve(file.getOriginalFilename()));
             PropertyFiles propertyFiles = propertyFilesRepository.save(new PropertyFiles(file.getOriginalFilename()));
-            return propertyFiles.getId();
+            return propertyFiles.getPropertyFileId();
         } catch (Exception e) {
             if (e instanceof FileAlreadyExistsException) {
                 throw new RuntimeException("A file of that name already exists.");

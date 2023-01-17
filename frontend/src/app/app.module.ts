@@ -32,6 +32,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    GoogleMapsModule,
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent],

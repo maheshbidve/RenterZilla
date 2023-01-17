@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -21,13 +22,13 @@ import javax.persistence.Table;
 public class PropertyFiles {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer propertyFileId;
 
-    @Column(length = 20)
+    @Column(length = 200)
     private String name;
 
     @ManyToOne
-    @JoinColumn(name="id", nullable=true)
+    @JoinColumn(name="propert_id", nullable=true)
     private Property property;
 
     public PropertyFiles(String name) {
