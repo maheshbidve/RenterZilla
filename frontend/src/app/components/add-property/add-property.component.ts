@@ -21,8 +21,8 @@ export class AddPropertyComponent {
     address: '',
     pincode: 0,
     available: false,
-    cordinates: this.cordinates,
-  };
+    latitude: 0,
+    longitude: 0  };
 
   constructor(private propertyService: PropertyService) {}
 
@@ -53,6 +53,8 @@ export class AddPropertyComponent {
       pincode: 0,
       address: '',
       available: true,
+      latitude: 0,
+      longitude: 0
     };
   }
   onLocation(location: LatLong): void {

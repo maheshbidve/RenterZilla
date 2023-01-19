@@ -6,5 +6,6 @@ export class Property {
   pincode?: number;
   address?: string;
   available?: boolean;
-  cordinates?: LatLong;
+  latitude: number = 0;
+  longitude: number = 0;
 }

@@ -17,6 +17,8 @@ export class PropertyDetailsComponent implements OnInit {
     pincode: 0,
     address: '',
     available: false,
+    latitude: 0,
+    longitude: 0
   };
 
   message = '';

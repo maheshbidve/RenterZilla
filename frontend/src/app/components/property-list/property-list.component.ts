@@ -1,5 +1,6 @@
 import { PropertyService } from './../../services/property.service';
 import { Component, OnInit } from '@angular/core';
+import { LatLong } from 'src/app/models/LatLong.model';
 import { Property } from 'src/app/models/property.model';
 
 @Component({
@@ -9,11 +10,20 @@ import { Property } from 'src/app/models/property.model';
 })
 export class PropertyListComponent implements OnInit {
   properties?: Property[];
-  currentProperty: Property = {};
+  currentProperty: Property = {
+    latitude: 0,
+    longitude: 0
+  };
   currentIndex = -1;
   city = '';
+  cor: google.maps.LatLngLiteral = {
+    lat: 0,
+    lng: 0
+  };
+  propertyLocations : google.maps.LatLngLiteral[] = [];
 
-  constructor(private propertyService: PropertyService) {}
+  constructor(private propertyService: PropertyService) {
+  }
 
   ngOnInit(): void {
     this.retrieveProperties();
@@ -24,14 +34,25 @@ export class PropertyListComponent implements OnInit {
       next: (data) => {
         this.properties = data;
         console.log(data);
+        this.populateCordinates(data);
       },
       error: (e) => console.error(e),
     });
   }
 
+  populateCordinates(data: Property[]) : void {
+    data.forEach((property) => {
+      this.cor = {
+        lat: property.latitude,
+        lng: property.longitude
+      }
+      this.propertyLocations.push(this.cor);
+    });
+  }
   refreshList(): void {
     this.retrieveProperties();
-    this.currentProperty = {};
+    this.currentProperty = {   latitude: 0,
+      longitude: 0};
     this.currentIndex = -1;
   }
 
@@ -41,7 +62,8 @@ export class PropertyListComponent implements OnInit {
   }
 
   searchByCity(): void {
-    this.currentProperty = {};
+    this.currentProperty = {   latitude: 0,
+      longitude: 0};
     this.currentIndex = -1;
 
     this.propertyService.findByCity(this.city).subscribe({

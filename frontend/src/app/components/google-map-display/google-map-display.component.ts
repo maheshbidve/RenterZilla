@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { LatLong } from 'src/app/models/LatLong.model';
 
 @Component({
@@ -8,12 +8,15 @@ import { LatLong } from 'src/app/models/LatLong.model';
 })
 export class GoogleMapDisplayComponent implements OnInit {
   @Output() cordinates = new EventEmitter<LatLong>();
+  @Input()
+  markerPositions: google.maps.LatLngLiteral[] = [];
   propertyLocation: LatLong = {
     lat: 0,
     long: 0,
   };
   constructor() {}
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
   center: google.maps.LatLngLiteral = {
     lat: 18.5088,
     lng: 73.8567,
@@ -22,7 +25,6 @@ export class GoogleMapDisplayComponent implements OnInit {
   markerOptions: google.maps.MarkerOptions = {
     draggable: true,
   };
-  markerPositions: google.maps.LatLngLiteral[] = [];
   addMarker(event: google.maps.MapMouseEvent) {
     if (event.latLng != null) {
       this.markerPositions.push(event.latLng.toJSON());
