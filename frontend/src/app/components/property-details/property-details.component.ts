@@ -2,6 +2,7 @@ import { PropertyService } from './../../services/property.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Property } from 'src/app/models/property.model';
+import { PropertyType } from 'src/app/models/property.type.model';
 
 @Component({
   selector: 'app-property-details',
@@ -12,13 +13,13 @@ export class PropertyDetailsComponent implements OnInit {
   @Input() viewMode = false;
 
   @Input() currentProperty: Property = {
-    type: '',
+    type: PropertyType['2 BHK'],
     city: '',
     pincode: 0,
     address: '',
     available: false,
     latitude: 0,
-    longitude: 0
+    longitude: 0,
   };
 
   message = '';

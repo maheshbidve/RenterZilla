@@ -16,6 +16,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { GoogleMapDisplayComponent } from './components/google-map-display/google-map-display.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { GoogleMapDisplayComponent } from './components/google-map-display/googl
     FormsModule,
     HttpClientModule,
     GoogleMapsModule,
+    NgbModule,
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent],

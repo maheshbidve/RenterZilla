@@ -2,18 +2,6 @@
   <div class="submit-form">
     <div *ngIf="!submitted">
       <div class="form-group">
-        <label for="type">Type</label>
-        <input
-          type="text"
-          class="form-control"
-          id="type"
-          required
-          [(ngModel)]="property.type"
-          name="type"
-        />
-      </div>
-
-      <div class="form-group">
         <label for="city">City</label>
         <input
           class="form-control"
@@ -45,8 +33,240 @@
           name="address"
         />
       </div>
+
+      <div class="form-group">
+        <label for="type">Type</label>
+        <select
+          class="form-control"
+          id="type"
+          required
+          [(ngModel)]="property.type"
+          name="type"
+        >
+          <option *ngFor="let type of propTypeKeys" [value]="propType">
+            {{ type }}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="flatnumber">Flat Number</label>
+        <input
+          class="form-control"
+          id="flatnumber"
+          required
+          [(ngModel)]="property.flatnumber"
+          name="flatnumber"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="floor">Floor Number</label>
+        <input
+          class="form-control"
+          id="floor"
+          required
+          [(ngModel)]="property.floor"
+          name="floor"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="floor">Building/ Wing</label>
+        <input
+          class="form-control"
+          id="building"
+          required
+          [(ngModel)]="property.building"
+          name="building"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="street">Street</label>
+        <input
+          class="form-control"
+          id="street"
+          required
+          [(ngModel)]="property.street"
+          name="street"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="landmarks">Landmark</label>
+        <input
+          class="form-control"
+          id="landmarks"
+          required
+          [(ngModel)]="property.landmarks"
+          name="landmarks"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="state">State</label>
+        <input
+          class="form-control"
+          id="state"
+          required
+          [(ngModel)]="property.state"
+          name="state"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="country">Country</label>
+        <input
+          class="form-control"
+          id="country"
+          required
+          [(ngModel)]="property.country"
+          value="India"
+          name="country"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="descrption">Descrption</label>
+        <input
+          class="form-control"
+          id="descrption"
+          required
+          [(ngModel)]="property.descrption"
+          name="descrption"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="furnishing">Furnishing</label>
+        <select
+          class="form-control"
+          id="furnishing"
+          required
+          [(ngModel)]="property.furnishing"
+          name="furnishing"
+        >
+          <option *ngFor="let item of furnishingKeys" [value]="furnishing">
+            {{ item }}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="baths">Number Of Bathrooms</label>
+        <input
+          class="form-control"
+          id="baths"
+          required
+          [(ngModel)]="property.baths"
+          name="baths"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="balconies">Number Of Balconies</label>
+        <input
+          class="form-control"
+          id="balconies"
+          required
+          [(ngModel)]="property.balconies"
+          name="balconies"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="facing">Facing</label>
+        <input
+          class="form-control"
+          id="facing"
+          required
+          [(ngModel)]="property.facing"
+          name="facing"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="parkings">Number Of Parkings</label>
+        <input
+          class="form-control"
+          id="parkings"
+          required
+          [(ngModel)]="property.parkings"
+          name="parkings"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="area">Carpet Area</label>
+        <input
+          class="form-control"
+          id="area"
+          required
+          [(ngModel)]="property.area"
+          name="area"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="lift">Lift available?</label>
+        <input
+          class="form-control"
+          id="lift"
+          required
+          [(ngModel)]="property.lift"
+          name="lift"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="age">Age of Property</label>
+        <input
+          class="form-control"
+          id="age"
+          required
+          [(ngModel)]="property.age"
+          name="age"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="rent">Rent</label>
+        <input
+          class="form-control"
+          id="rent"
+          required
+          [(ngModel)]="property.rent"
+          name="rent"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="deposit">Deposit</label>
+        <input
+          class="form-control"
+          id="deposit"
+          required
+          [(ngModel)]="property.deposit"
+          name="deposit"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="maintenance">Monthly Maintenance</label>
+        <input
+          class="form-control"
+          id="maintenance"
+          required
+          [(ngModel)]="property.maintenance"
+          name="maintenance"
+        />
+      </div>
+
       <app-file-upload></app-file-upload>
-      <app-google-map-display (cordinates)="onLocation($event)"></app-google-map-display>
+      <app-google-map-display
+        (cordinates)="onLocation($event)"
+      ></app-google-map-display>
       <button (click)="saveProperty()" class="btn btn-success">Submit</button>
     </div>
 

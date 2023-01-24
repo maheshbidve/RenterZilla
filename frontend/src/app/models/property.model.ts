@@ -1,11 +1,33 @@
 import { LatLong } from 'src/app/models/LatLong.model';
+import { Furnishing } from 'src/app/models/Furnishing.model';
+import { PropertyType } from './property.type.model';
+import { Facing } from './Facing.model';
 export class Property {
   property_id?: any;
-  type?: string;
+  type: PropertyType = PropertyType['2 BHK'];
   city?: string;
   pincode?: number;
   address?: string;
   available?: boolean;
   latitude: number = 0;
   longitude: number = 0;
+  flatnumber?: number;
+  floor?: number;
+  building?: string;
+  street?: string;
+  landmarks?: string;
+  state?: string;
+  country?: string;
+  descrption?: string;
+  furnishing?: Furnishing;
+  baths?: number;
+  balconies?: number;
+  facing?: Facing;
+  parkings?: number;
+  area?: number;
+  lift?: boolean;
+  age?: number;
+  rent?: number;
+  deposit?: number;
+  maintenance?: number;
 }
