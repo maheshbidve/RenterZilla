@@ -1,6 +1,7 @@
 import { PropertyService } from './../../services/property.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Furnishing } from 'src/app/models/Furnishing.model';
 import { Property } from 'src/app/models/property.model';
 import { PropertyType } from 'src/app/models/property.type.model';
 
@@ -11,6 +12,12 @@ import { PropertyType } from 'src/app/models/property.type.model';
 })
 export class PropertyDetailsComponent implements OnInit {
   @Input() viewMode = false;
+
+  public furnishing: Furnishing = Furnishing['Fully-Furnished'];
+  furnishingKeys = Object.values(Furnishing).filter((v) => isNaN(Number(v)));
+
+  public propType: PropertyType = PropertyType['2 BHK'];
+  propTypeKeys = Object.values(PropertyType).filter((v) => isNaN(Number(v)));
 
   @Input() currentProperty: Property = {
     type: PropertyType['2 BHK'],

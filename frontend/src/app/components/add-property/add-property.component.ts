@@ -59,16 +59,10 @@ export class AddPropertyComponent {
   }
 
   saveProperty(): void {
-    const data = {
-      type: this.property.type,
-      city: this.property.city,
-      pincode: this.property.pincode,
-      address: this.property.address,
-      latitude: this.cordinates.lat,
-      longitude: this.cordinates.long,
-    };
+    this.property.latitude = this.cordinates.lat as number;
+    this.property.longitude = this.cordinates.long as number;
 
-    this.propertyService.create(data).subscribe({
+    this.propertyService.create(this.property).subscribe({
       next: (res) => {
         console.log(res);
         this.submitted = true;

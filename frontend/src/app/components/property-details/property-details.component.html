@@ -40,14 +40,18 @@
     <h4>Property</h4>
     <form>
       <div class="form-group">
-        <label for="title">Type</label>
-        <input
-          type="text"
+        <label for="type">Type</label>
+        <select
           class="form-control"
           id="type"
+          required
           [(ngModel)]="currentProperty.type"
           name="type"
-        />
+        >
+          <option *ngFor="let type of propTypeKeys" [value]="propType">
+            {{ type }}
+          </option>
+        </select>
       </div>
       <div class="form-group">
         <label for="city">City</label>
@@ -79,6 +83,220 @@
           id="address"
           [(ngModel)]="currentProperty.address"
           name="address"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="flatnumber">Flat Number</label>
+        <input
+          class="form-control"
+          id="flatnumber"
+          required
+          [(ngModel)]="currentProperty.flatnumber"
+          name="flatnumber"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="floor">Floor Number</label>
+        <input
+          class="form-control"
+          id="floor"
+          required
+          [(ngModel)]="currentProperty.floor"
+          name="floor"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="floor">Building/ Wing</label>
+        <input
+          class="form-control"
+          id="building"
+          required
+          [(ngModel)]="currentProperty.building"
+          name="building"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="street">Street</label>
+        <input
+          class="form-control"
+          id="street"
+          required
+          [(ngModel)]="currentProperty.street"
+          name="street"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="landmarks">Landmark</label>
+        <input
+          class="form-control"
+          id="landmarks"
+          required
+          [(ngModel)]="currentProperty.landmarks"
+          name="landmarks"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="state">State</label>
+        <input
+          class="form-control"
+          id="state"
+          required
+          [(ngModel)]="currentProperty.state"
+          name="state"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="country">Country</label>
+        <input
+          class="form-control"
+          id="country"
+          required
+          [(ngModel)]="currentProperty.country"
+          value="India"
+          name="country"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="descrption">Descrption</label>
+        <input
+          class="form-control"
+          id="descrption"
+          required
+          [(ngModel)]="currentProperty.descrption"
+          name="descrption"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="furnishing">Furnishing</label>
+        <select
+          class="form-control"
+          id="furnishing"
+          required
+          [(ngModel)]="currentProperty.furnishing"
+          name="furnishing"
+        >
+          <option *ngFor="let item of furnishingKeys" [value]="furnishing">
+            {{ item }}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="baths">Number Of Bathrooms</label>
+        <input
+          class="form-control"
+          id="baths"
+          required
+          [(ngModel)]="currentProperty.baths"
+          name="baths"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="balconies">Number Of Balconies</label>
+        <input
+          class="form-control"
+          id="balconies"
+          required
+          [(ngModel)]="currentProperty.balconies"
+          name="balconies"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="facing">Facing</label>
+        <input
+          class="form-control"
+          id="facing"
+          required
+          [(ngModel)]="currentProperty.facing"
+          name="facing"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="parkings">Number Of Parkings</label>
+        <input
+          class="form-control"
+          id="parkings"
+          required
+          [(ngModel)]="currentProperty.parkings"
+          name="parkings"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="area">Carpet Area</label>
+        <input
+          class="form-control"
+          id="area"
+          required
+          [(ngModel)]="currentProperty.area"
+          name="area"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="lift">Lift available?</label>
+        <input
+          class="form-control"
+          id="lift"
+          required
+          [(ngModel)]="currentProperty.lift"
+          name="lift"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="age">Age of Property</label>
+        <input
+          class="form-control"
+          id="age"
+          required
+          [(ngModel)]="currentProperty.age"
+          name="age"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="rent">Rent</label>
+        <input
+          class="form-control"
+          id="rent"
+          required
+          [(ngModel)]="currentProperty.rent"
+          name="rent"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="deposit">Deposit</label>
+        <input
+          class="form-control"
+          id="deposit"
+          required
+          [(ngModel)]="currentProperty.deposit"
+          name="deposit"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="maintenance">Monthly Maintenance</label>
+        <input
+          class="form-control"
+          id="maintenance"
+          required
+          [(ngModel)]="currentProperty.maintenance"
+          name="maintenance"
         />
       </div>
 

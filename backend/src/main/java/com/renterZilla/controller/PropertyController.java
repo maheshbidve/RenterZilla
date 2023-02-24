@@ -71,7 +71,7 @@ public class PropertyController {
 	public ResponseEntity<Property> createProperty(@RequestBody Property property) {
 		try {
 			Property _property = propertyRepository
-					.save(new Property(property.getType(), property.getCity(), property.getPincode(), property.getAddress(), property.getLatitude(), property.getLongitude(), true));
+					.save(property);
 			return new ResponseEntity<>(_property, HttpStatus.CREATED);
 		} catch (Exception e) {
 			LOGGER.error("Failed to save property", e);
@@ -90,6 +90,33 @@ public class PropertyController {
 			_property.setPincode(property.getPincode());
 			_property.setAddress(property.getAddress());
 			_property.setAvailable(property.isAvailable());
+			_property.setAddress(property.getAddress());
+			_property.setAge(property.getAge());
+			_property.setAddress(property.getAddress());
+			_property.setArea(property.getArea());
+			_property.setBalconies(property.getBalconies());
+			_property.setBaths(property.getBaths());
+			_property.setBuilding(property.getBuilding());
+			_property.setCountry(property.getCountry());
+			_property.setDeposit(property.getDeposit());
+			_property.setDescrption(property.getDescrption());
+			_property.setFacing(property.getFacing());
+			_property.setFlatnumber(property.getFlatnumber());
+			_property.setFloor(property.getFloor());
+			_property.setFurnishing(property.getFurnishing());
+			_property.setLandmarks(property.getLandmarks());
+			_property.setLatitude(property.getLatitude());
+			_property.setLongitude(property.getLongitude());
+			_property.setLift(property.isLift());
+			_property.setRent(property.getRent());
+			_property.setMaintenance(property.getMaintenance());
+			_property.setState(property.getState());
+			_property.setParkings(property.getParkings());
+			_property.setStreet(property.getStreet());
+
+
+
+
 			return new ResponseEntity<>(propertyRepository.save(_property), HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);

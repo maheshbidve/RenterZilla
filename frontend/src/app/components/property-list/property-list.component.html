@@ -1,3 +1,30 @@
+<div class="container">
+  <div *ngFor="let card of properties">
+  <div class="row">
+      <a href="http://google.com" target="_blank">
+      <div class="card">
+        <div class="card-header">
+          {{ card.type }}
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-*-4">
+              In this example, the card body contains a two-column layout. The row class creates a horizontal grouping of columns and the col-sm-6 class creates two columns that each take up half of the width of the row on small screens. The first column contains the title and description, while the second column contains the image and the list of items. The button is positioned outside of the two-column layout.            </div>
+            <div class="col-*-4">
+              {{ card.furnishing }}
+            </div>
+            <div class="col-*-4">
+              {{ card.deposit }}
+            </div>
+          </div>
+          <button class="btn btn-primary">{{ card.rent }}</button>
+        </div>
+      </div>
+      </a>
+    </div>
+  </div>
+</div>
+
 <div class="list row">
   <div class="col-md-8">
     <div class="input-group mb-3">
@@ -14,6 +41,53 @@
       </div>
     </div>
   </div>
+  
+  <div class="container">
+    <div *ngFor="let card of properties">
+    <div class="row">
+        <a href="http://google.com" target="_blank">
+        <div class="card custom-card">
+          <div class="card-header">
+            {{ card.type }}
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-*-4">
+                {{ card.city }}
+              </div>
+              <div class="col-*-4">
+                {{ card.furnishing }}
+              </div>
+              <div class="col-*-4">
+                {{ card.deposit }}
+              </div>
+            </div>
+            <button class="btn btn-primary">{{ card.rent }}</button>
+          </div>
+        </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="card custom-card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-*-6">
+          <h5 class="card-title">Aaaaaaaa</h5>
+          <p class="card-text">bbbbbbbb</p>
+        </div>
+        <div class="col-*-6">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngFor="let item of properties">            {{item.city}}
+            </li>
+          </ul>
+        </div>
+      </div>
+      <button class="btn btn-primary">ooooo</button>
+    </div>
+  </div>
+  
   <div class="col-md-6">
     <h4>Properties List</h4>
     <ul class="list-group">

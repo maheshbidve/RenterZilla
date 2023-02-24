@@ -1,7 +1,23 @@
-<div>
-  <div class="submit-form">
+<div class="container-fluid">
     <div *ngIf="!submitted">
-      <div class="form-group">
+      <div class="form-row">
+
+        <div class="form-group col-md-4">
+          <label for="type">Type</label>
+          <select
+            class="form-control"
+            id="type"
+            required
+            [(ngModel)]="property.type"
+            name="type"
+          >
+            <option *ngFor="let type of propTypeKeys" [value]="propType">
+              {{ type }}
+            </option>
+          </select>
+        </div>
+
+      <div class="form-group col-md-4">
         <label for="city">City</label>
         <input
           class="form-control"
@@ -12,7 +28,7 @@
         />
       </div>
 
-      <div class="form-group">
+      <div class="form-group col-md-4">
         <label for="pincode">Pincode</label>
         <input
           class="form-control"
@@ -22,8 +38,9 @@
           name="pincode"
         />
       </div>
-
-      <div class="form-group">
+    </div>
+    <div class="form-row">
+      <div class="form-group form-group col-md-8">
         <label for="address">Address</label>
         <input
           class="form-control"
@@ -34,22 +51,7 @@
         />
       </div>
 
-      <div class="form-group">
-        <label for="type">Type</label>
-        <select
-          class="form-control"
-          id="type"
-          required
-          [(ngModel)]="property.type"
-          name="type"
-        >
-          <option *ngFor="let type of propTypeKeys" [value]="propType">
-            {{ type }}
-          </option>
-        </select>
-      </div>
-
-      <div class="form-group">
+      <div class="form-group form-group col-md-4" >
         <label for="flatnumber">Flat Number</label>
         <input
           class="form-control"
@@ -59,8 +61,10 @@
           name="flatnumber"
         />
       </div>
+    </div>
 
-      <div class="form-group">
+    <div class="form-row">
+      <div class="form-group form-group col-md-4">
         <label for="floor">Floor Number</label>
         <input
           class="form-control"
@@ -71,7 +75,7 @@
         />
       </div>
 
-      <div class="form-group">
+      <div class="form-group form-group col-md-4">
         <label for="floor">Building/ Wing</label>
         <input
           class="form-control"
@@ -82,7 +86,7 @@
         />
       </div>
 
-      <div class="form-group">
+      <div class="form-group form-group col-md-4">
         <label for="street">Street</label>
         <input
           class="form-control"
@@ -92,8 +96,10 @@
           name="street"
         />
       </div>
+    </div>
 
-      <div class="form-group">
+    <div class="form-row">
+      <div class="form-group form-group col-md-4">
         <label for="landmarks">Landmark</label>
         <input
           class="form-control"
@@ -104,7 +110,7 @@
         />
       </div>
 
-      <div class="form-group">
+      <div class="form-group form-group col-md-4">
         <label for="state">State</label>
         <input
           class="form-control"
@@ -115,7 +121,7 @@
         />
       </div>
 
-      <div class="form-group">
+      <div class="form-group form-group col-md-4">
         <label for="country">Country</label>
         <input
           class="form-control"
@@ -126,19 +132,19 @@
           name="country"
         />
       </div>
+    </div>
 
-      <div class="form-group">
+    <div class="form-row">
+      <div class="form-group form-group col-md-4">
         <label for="descrption">Descrption</label>
-        <input
-          class="form-control"
-          id="descrption"
-          required
-          [(ngModel)]="property.descrption"
-          name="descrption"
-        />
+        <textarea rows="=4" class="form-control"
+        id="descrption"
+        required
+        [(ngModel)]="property.descrption"
+        name="descrption"></textarea>
       </div>
 
-      <div class="form-group">
+      <div class="form-group form-group col-md-4">
         <label for="furnishing">Furnishing</label>
         <select
           class="form-control"
@@ -153,7 +159,7 @@
         </select>
       </div>
 
-      <div class="form-group">
+      <div class="form-group form-group col-md-4">
         <label for="baths">Number Of Bathrooms</label>
         <input
           class="form-control"
@@ -163,8 +169,10 @@
           name="baths"
         />
       </div>
+    </div>
 
-      <div class="form-group">
+    <div class="form-row ">
+      <div class="form-group form-group col-md-4">
         <label for="balconies">Number Of Balconies</label>
         <input
           class="form-control"
@@ -175,10 +183,11 @@
         />
       </div>
 
-      <div class="form-group">
+      <div class="form-group form-group col-md-4">
         <label for="facing">Facing</label>
         <input
           class="form-control"
+          placeholder = "e.g. East Facing"
           id="facing"
           required
           [(ngModel)]="property.facing"
@@ -186,7 +195,7 @@
         />
       </div>
 
-      <div class="form-group">
+      <div class="form-group form-group col-md-4">
         <label for="parkings">Number Of Parkings</label>
         <input
           class="form-control"
@@ -196,19 +205,22 @@
           name="parkings"
         />
       </div>
+    </div>
 
-      <div class="form-group">
+    <div class="form-row">
+      <div class="form-group form-group col-md-4">
         <label for="area">Carpet Area</label>
         <input
           class="form-control"
           id="area"
+          placeholder = "Sq Feets"
           required
           [(ngModel)]="property.area"
           name="area"
         />
       </div>
 
-      <div class="form-group">
+      <div class="form-group form-group col-md-4">
         <label for="lift">Lift available?</label>
         <input
           class="form-control"
@@ -219,7 +231,7 @@
         />
       </div>
 
-      <div class="form-group">
+      <div class="form-group form-group col-md-4">
         <label for="age">Age of Property</label>
         <input
           class="form-control"
@@ -229,8 +241,10 @@
           name="age"
         />
       </div>
+    </div>
 
-      <div class="form-group">
+    <div class="form-row">
+      <div class="form-group form-group col-md-4">
         <label for="rent">Rent</label>
         <input
           class="form-control"
@@ -241,7 +255,7 @@
         />
       </div>
 
-      <div class="form-group">
+      <div class="form-group form-group col-md-4">
         <label for="deposit">Deposit</label>
         <input
           class="form-control"
@@ -252,7 +266,7 @@
         />
       </div>
 
-      <div class="form-group">
+      <div class="form-group form-group col-md-4">
         <label for="maintenance">Monthly Maintenance</label>
         <input
           class="form-control"
@@ -262,17 +276,27 @@
           name="maintenance"
         />
       </div>
+    </div>
+    <div class="form-row ">
+      <div class="form-group col-md-6">
+        <app-file-upload></app-file-upload>
+        </div>
+      </div>
 
-      <app-file-upload></app-file-upload>
-      <app-google-map-display
+      <div class="form-row ">
+        <div class="form-group col-md-6">
+        <app-google-map-display
         (cordinates)="onLocation($event)"
       ></app-google-map-display>
-      <button (click)="saveProperty()" class="btn btn-success">Submit</button>
+        </div>
+      </div>
+      <div class="text-right">
+        <button (click)="saveProperty()" class="btn btn-primary pull-right">Submit</button>
+      </div>
     </div>
 
     <div *ngIf="submitted">
       <h4>Property was submitted successfully!</h4>
       <button class="btn btn-success" (click)="newProperty()">Add</button>
     </div>
-  </div>
 </div>
